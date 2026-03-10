@@ -1,0 +1,4 @@
+com.example.microservices.catalog.CatalogConfiguration
+com.example.microservices.catalog.web.autoconfig.ExampleCatalogWebAutoConfiguration
+com.example.microservices.catalog.service.autoconfig.ExampleCatalogServiceAutoConfiguration
+

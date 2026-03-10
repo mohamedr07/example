@@ -18,5 +18,5 @@ databaseChangeLog:
     file: db/changelog/adminnavigation.starter.required.data.changelog.xml
     author: broadleaf-changelog-generation-plugin
 - include:
-      file: db/changelog/adminnavigation.data.changelog.xml
-      author: Mohamed
+    file: db/changelog/adminnavigation.data.changelog.xml
+    author: Mohamed

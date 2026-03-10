@@ -1,0 +1,20 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?><databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd"><preConditions><dbms type="postgresql"/></preConditions>
+    <changeSet id="adminnavigation-processing-info" author="Mohamed"
+               labels="adminnavigation,required">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">SELECT COUNT(*)
+                FROM BLC_ADMIN_MENU_ITEM
+                WHERE ID = '613451';</sqlCheck>
+        </preConditions>
+        <insert tableName="BLC_ADMIN_MENU_ITEM">
+            <column name="ID" value="613451"/>
+            <column name="CONTEXT_ID" value="613451"/>
+            <column name="DISPLAY_ORDER" value="1000"/>
+            <column name="LABEL" value="Processing Info"/>
+            <column name="PARENT_MENU_ITEM_CONTEXT_ID" value="200"/>
+            <column name="TRK_ARCHIVED" value="N"/>
+            <column name="TRK_TENANT_ID" value="${blcTenantId}"/>
+            <column name="URL" value="/processing-info"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

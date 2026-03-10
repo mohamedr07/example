@@ -1,0 +1,2 @@
+com.example.microservices.metadata.CatalogMetadataConfiguration
+com.example.microservices.metadata.processinginfo.ProcessingInfoMetadataAutoConfiguration

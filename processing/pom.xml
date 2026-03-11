@@ -148,6 +148,10 @@
             <groupId>com.broadleafcommerce.microservices</groupId>
             <artifactId>broadleaf-common-extension-compatibility</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.broadleafcommerce.microservices</groupId>
+            <artifactId>broadleaf-workflow-client</artifactId>
+        </dependency>
         <!--Config Server Dependencies-->
         <dependency>
             <!--Label: ConfigServer-->

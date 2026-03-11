@@ -19,39 +19,39 @@ import static com.broadleafcommerce.catalog.metadata.support.DefaultProductType.
 
 @Configuration
 public class CatalogMetadataConfiguration {
-
-    @Bean
-    public ComponentSource tutorialProductAdminMetadata(@Nullable CatalogMetadataProperties properties) {
-        return registry -> {
-            // Discover the active product types
-            List<DefaultProductType> types = Arrays.stream(values())
-                    .filter(t -> ((Optional.ofNullable(properties))
-                            .map(item -> item.getActiveProductTypes().contains(t.name()))
-                            .orElse(false)))
-                    .toList();
-            for (DefaultProductType type : types) {
-                // For each product type, add the new field to the create and update forms
-                List<EntityView<?>> views = Arrays.asList(
-                        (EntityView<?>) registry.get(String.format(ProductIds.CREATE, type.name())),
-                        (EntityView<?>) registry.get(String.format(ProductIds.UPDATE, type.name()))
-                );
-
-                for (EntityView<?> view : views) {
-                    // Get the basic information group
-                    var basicGroup = view.getGeneralForm().getGroup(ProductGroups.BASIC_INFORMATION);
-
-                    // Add the "model" field
-                    basicGroup.addField(Fields.string()
-                            .name("model")
-                            .label("Model"));
-
-                    // Add the "color" field
-                    basicGroup.addField(Fields.string()
-                            .name("make")
-                            .label("Make"));
-                }
-            }
-        };
-    }
+//
+//    @Bean
+//    public ComponentSource tutorialProductAdminMetadata(@Nullable CatalogMetadataProperties properties) {
+//        return registry -> {
+//            // Discover the active product types
+//            List<DefaultProductType> types = Arrays.stream(values())
+//                    .filter(t -> ((Optional.ofNullable(properties))
+//                            .map(item -> item.getActiveProductTypes().contains(t.name()))
+//                            .orElse(false)))
+//                    .toList();
+//            for (DefaultProductType type : types) {
+//                // For each product type, add the new field to the create and update forms
+//                List<EntityView<?>> views = Arrays.asList(
+//                        (EntityView<?>) registry.get(String.format(ProductIds.CREATE, type.name())),
+//                        (EntityView<?>) registry.get(String.format(ProductIds.UPDATE, type.name()))
+//                );
+//
+//                for (EntityView<?> view : views) {
+//                    // Get the basic information group
+//                    var basicGroup = view.getGeneralForm().getGroup(ProductGroups.BASIC_INFORMATION);
+//
+//                    // Add the "model" field
+//                    basicGroup.addField(Fields.string()
+//                            .name("model")
+//                            .label("Model"));
+//
+//                    // Add the "color" field
+//                    basicGroup.addField(Fields.string()
+//                            .name("make")
+//                            .label("Make"));
+//                }
+//            }
+//        };
+//    }
 
 }

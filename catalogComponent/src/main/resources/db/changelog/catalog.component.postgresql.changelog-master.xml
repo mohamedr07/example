@@ -2,7 +2,7 @@
     <!-- include the master baseline changelog from the services dependency JAR -->
     <include file="db/changelog/catalog.starter.postgresql.changelog-master.yaml"/>
     <!-- Client Schema Extensions Can Be Specified/Generated Below -->
-    <changeSet author="mrashed (generated)" id="1773181810299-2" labels="nonindex">
+    <changeSet author="mrashed (generated)" id="1773225829971-2" labels="nonindex">
         <createTable tableName="processing_info">
             <column name="id" type="VARCHAR(36)">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="processing_info_pkey"/>
@@ -44,19 +44,7 @@
             </column>
         </createTable>
     </changeSet>
-    <changeSet author="mrashed (generated)" id="1773181810299-3" labels="nonindex">
+    <changeSet author="mrashed (generated)" id="1773225829971-3" labels="nonindex">
         <addUniqueConstraint columnNames="name" constraintName="uk_n2dwkvcv2tekuhak1xf5vbrwx" tableName="processing_info"/>
-    </changeSet>
-    <changeSet author="mrashed (generated)" id="1773181810299-4" labels="nonindex">
-        <createTable tableName="electric_car">
-            <column name="make" type="VARCHAR(255)"/>
-            <column name="model" type="VARCHAR(255)"/>
-            <column name="id" type="VARCHAR(36)">
-                <constraints nullable="false" primaryKey="true" primaryKeyName="electric_car_pkey"/>
-            </column>
-        </createTable>
-    </changeSet>
-    <changeSet author="mrashed (generated)" id="1773181810299-5" labels="nonindex">
-        <addForeignKeyConstraint baseColumnNames="id" baseTableName="electric_car" constraintName="fklfm1yt9l3gc2acvnhc5cx16bk" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="blc_product" validate="true"/>
     </changeSet>
 </databaseChangeLog>

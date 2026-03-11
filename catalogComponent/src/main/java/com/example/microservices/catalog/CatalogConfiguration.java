@@ -18,20 +18,20 @@ import static com.broadleafcommerce.catalog.provider.jpa.JpaRouteConstants.Persi
 @Configuration
 public class CatalogConfiguration {
 
-    @Configuration
-    @AutoConfigureBefore(CommonJpaAutoConfiguration.class)
-    @JpaEntityScan(basePackages = {"com.example.microservices.catalog.provider.jpa.domain.nontrackable"},
-            routePackage = RouteConstants.Persistence.CATALOG_ROUTE_PACKAGE)
-    public static class NonTrackableEntities {
-
-    }
+//    @Configuration
+//    @AutoConfigureBefore(CommonJpaAutoConfiguration.class)
+//    @JpaEntityScan(basePackages = {"com.example.microservices.catalog.provider.jpa.domain.nontrackable"},
+//            routePackage = RouteConstants.Persistence.CATALOG_ROUTE_PACKAGE)
+//    public static class NonTrackableEntities {
+//
+//    }
 
     @Configuration
     @AutoConfigureBefore(CommonJpaAutoConfiguration.class)
     @EnableJpaTrackableFlow(
             entityClass = JpaProcessingInfo.class,
             routeKey = DataRoutes.CATALOG,
-            permissionRoots = "CATALOG",
+            permissionRoots = "PRODUCT",
             rootPath = "/processing-info")
     public static class ProcessingInfoConfig {
     }

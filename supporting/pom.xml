@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd"
-    xmlns="http://maven.apache.org/POM/4.0.0">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.broadleafcommerce.microservices</groupId>
@@ -41,33 +41,27 @@
             <artifactId>microservice-flexpackage-manifest</artifactId>
             <version>1.0.0-SNAPSHOT</version>
         </dependency>
-        <!--Dependencies for flex unit: adminnav-->
         <dependency>
             <groupId>com.broadleafcommerce.microservices</groupId>
             <artifactId>broadleaf-admin-navigation-services</artifactId>
         </dependency>
-        <!--Dependencies for flex unit: adminuser-->
         <dependency>
             <groupId>com.broadleafcommerce.microservices</groupId>
             <artifactId>broadleaf-admin-user-services</artifactId>
         </dependency>
-        <!--Customized component: metadata-->
         <dependency>
             <groupId>com.example.microservices</groupId>
             <artifactId>microservice-component-metadata</artifactId>
             <version>1.0.0-SNAPSHOT</version>
         </dependency>
-        <!--Dependencies for flex unit: notification-->
         <dependency>
             <groupId>com.broadleafcommerce.microservices</groupId>
             <artifactId>broadleaf-notification-services</artifactId>
         </dependency>
-        <!--Dependencies for flex unit: sandbox-->
         <dependency>
             <groupId>com.broadleafcommerce.microservices</groupId>
             <artifactId>broadleaf-sandbox-services</artifactId>
         </dependency>
-        <!--Dependencies for flex unit: search-->
         <dependency>
             <groupId>com.broadleafcommerce.microservices</groupId>
             <artifactId>broadleaf-solr-fulfillment-search</artifactId>
@@ -84,7 +78,6 @@
             <groupId>com.broadleafcommerce.microservices</groupId>
             <artifactId>broadleaf-solr-catalog-search</artifactId>
         </dependency>
-        <!--Dependencies for flex unit: tenant-->
         <dependency>
             <groupId>com.broadleafcommerce.microservices</groupId>
             <artifactId>broadleaf-tenant-services</artifactId>
@@ -101,10 +94,18 @@
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
         </dependency>
-        <!--Supporting Dependencies-->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.broadleafcommerce.microservices</groupId>
+            <artifactId>broadleaf-common-extension-compatibility-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.broadleafcommerce.microservices</groupId>
+            <artifactId>broadleaf-common-extension-compatibility</artifactId>
         </dependency>
         <!--Config Server Dependencies-->
         <dependency>
@@ -118,16 +119,6 @@
             <groupId>com.broadleafcommerce.microservices</groupId>
             <artifactId>broadleaf-microservices-starter-heatclinic</artifactId>
             <version>1.1.6-GA</version>
-        </dependency>
-        <!--Additional Dependencies-->
-        <dependency>
-            <groupId>com.broadleafcommerce.microservices</groupId>
-            <artifactId>broadleaf-common-extension-compatibility-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.broadleafcommerce.microservices</groupId>
-            <artifactId>broadleaf-common-extension-compatibility</artifactId>
         </dependency>
     </dependencies>
 </project>

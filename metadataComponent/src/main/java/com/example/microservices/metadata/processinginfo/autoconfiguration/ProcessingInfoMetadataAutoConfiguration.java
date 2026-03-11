@@ -1,4 +1,4 @@
-package com.example.microservices.metadata.processinginfo;
+package com.example.microservices.metadata.processinginfo.autoconfiguration;
 
 import com.broadleafcommerce.metadata.dsl.core.Endpoint;
 import com.broadleafcommerce.metadata.dsl.core.extension.views.browse.EntityBrowseView;
@@ -12,6 +12,10 @@ import com.broadleafcommerce.metadata.dsl.core.utils.Views;
 import com.broadleafcommerce.metadata.dsl.registry.ComponentSource;
 import com.broadleafcommerce.metadata.route.ComponentRouteLocator;
 import com.broadleafcommerce.metadata.route.builder.RoutesBuilder;
+import com.example.microservices.metadata.processinginfo.ProcessingInfoIds;
+import com.example.microservices.metadata.processinginfo.ProcessingInfoPaths;
+import com.example.microservices.metadata.processinginfo.ProcessingInfoProps;
+import com.example.microservices.metadata.processinginfo.ProcessingInfoScopes;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -21,11 +25,11 @@ public class ProcessingInfoMetadataAutoConfiguration {
     public ComponentRouteLocator processInfoMetadataRoutes(RoutesBuilder routesBuilder) {
         return routesBuilder.routes()
                 .route("/processing-info", r -> r.componentId(ProcessingInfoIds.BROWSE)
-                        .scope(ProcessingInfoScopes.CATALOG))
+                        .scope(ProcessingInfoScopes.PRODUCT))
                 .route("/processing-info/create", r -> r.componentId(ProcessingInfoIds.CREATE)
-                        .scope(ProcessingInfoScopes.CATALOG))
+                        .scope(ProcessingInfoScopes.PRODUCT))
                 .route("/processing-info/:id", r -> r.componentId(ProcessingInfoIds.UPDATE)
-                        .scope(ProcessingInfoScopes.CATALOG))
+                        .scope(ProcessingInfoScopes.PRODUCT))
                 .build();
     }
 
@@ -49,12 +53,12 @@ public class ProcessingInfoMetadataAutoConfiguration {
                 .readEndpoint(ep -> ep.narrowedPaging()
                         .uri(ProcessingInfoPaths.PROCESSING_INFO)
                         .method(Endpoint.Method.GET)
-                        .scope(ProcessingInfoScopes.CATALOG))
+                        .scope(ProcessingInfoScopes.PRODUCT))
                 .sortable()
                 .filterByQueryBuilder()
                 .createAction(a -> a.label("process-info.actions.create")
                         .linkById(ProcessingInfoIds.CREATE)
-                        .scope(ProcessingInfoScopes.CATALOG))
+                        .scope(ProcessingInfoScopes.PRODUCT))
                 .addColumn(ProcessingInfoProps.ID,
                         Columns.linkById(ProcessingInfoIds.UPDATE)
                                 .label("process-info.columns.id")
@@ -78,7 +82,7 @@ public class ProcessingInfoMetadataAutoConfiguration {
                 .submitEndpoint(ep -> ep
                         .uri(ProcessingInfoPaths.PROCESSING_INFO)
                         .method(Endpoint.Method.POST)
-                        .scope(ProcessingInfoScopes.CATALOG))
+                        .scope(ProcessingInfoScopes.PRODUCT))
                 .submitLabel("process-info.create.actions.submit")
                 .addGeneralForm(getCreateGeneralForm());
 
@@ -101,10 +105,10 @@ public class ProcessingInfoMetadataAutoConfiguration {
         return Views.entityViewUpdate()
                 .label("process-info.update")
                 .backLinkById(ProcessingInfoIds.BROWSE)
-                .readUrl(ProcessingInfoPaths.PROCESSING_INFO_SINGLE, ProcessingInfoScopes.CATALOG)
-                .submitUrl(ProcessingInfoPaths.PROCESSING_INFO_SINGLE, ProcessingInfoScopes.CATALOG)
+                .readUrl(ProcessingInfoPaths.PROCESSING_INFO_SINGLE, ProcessingInfoScopes.PRODUCT)
+                .submitUrl(ProcessingInfoPaths.PROCESSING_INFO_SINGLE, ProcessingInfoScopes.PRODUCT)
                 .submitLabel("process-info.update.actions.submit")
-                .deleteUrl(ProcessingInfoPaths.PROCESSING_INFO_SINGLE, ProcessingInfoScopes.CATALOG)
+                .deleteUrl(ProcessingInfoPaths.PROCESSING_INFO_SINGLE, ProcessingInfoScopes.PRODUCT)
                 .deleteLabel("process-info.update.actions.delete")
                 .addGeneralForm(getUpdateGeneralForm());
 
